@@ -1,3 +1,89 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Dark mode background and text helpers */
+body.dark {
+  background-color: #18181b;
+  color: #e5e7eb;
+}
+
+.dark .bg-white {
+  background-color: #23272f !important;
+}
+.dark .text-gray-800,
+.dark .text-gray-700,
+.dark .text-gray-600 {
+  color: #e5e7eb !important;
+}
+.dark .shadow-lg,
+.dark .shadow-xl,
+.dark .shadow-2xl {
+  box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.7) !important;
+}
+.dark .border-gray-100 {
+  border-color: #2d3748 !important;
+}
+.dark .bg-gray-100 {
+  background-color: #23272f !important;
+}
+.dark .bg-red-100 {
+  background-color: #3b1f1f !important;
+}
+.dark .text-red-500 {
+  color: #f87171 !important;
+}
+.dark .bg-gradient-to-r {
+  background-image: linear-gradient(to right, #f87171, #be185d) !important;
+}
+
+/* Custom dark mode improvements - use direct CSS, not @apply, to avoid circular dependency */
+html.dark {
+  background: #18181b;
+}
+body {
+  transition: background 0.3s, color 0.3s;
+}
+
+.dark .bg-white {
+  background-color: #23272f !important;
+}
+.dark .bg-gray-100 {
+  background-color: #23272f !important;
+}
+.dark .border-gray-100 {
+  border-color: #2d3748 !important;
+}
+.dark .text-gray-800,
+.dark .text-gray-700,
+.dark .text-gray-600 {
+  color: #e5e7eb !important;
+}
+.dark .shadow-lg,
+.dark .shadow-xl,
+.dark .shadow-2xl {
+  box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.7) !important;
+}
+
+input,
+textarea {
+  background-color: #18181b;
+  color: #e5e7eb;
+  border-color: #2d3748;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #a1a1aa;
+}
+
+button {
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Scrollbar for dark mode */
+html.dark ::-webkit-scrollbar {
+  background: #23272f;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #444;
+}

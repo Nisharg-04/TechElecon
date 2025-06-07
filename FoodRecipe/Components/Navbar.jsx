@@ -1,47 +1,122 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { GlobalContext } from "../Context";
-function Navbar() {
+import PropTypes from "prop-types";
+
+function Navbar({ onToggleDark, dark }) {
   const { searchPrams, setsearchPrams, handleSubmit } =
     useContext(GlobalContext);
 
   return (
-    <nav className="flex justify-between items-center py-8 container mx-auto flex-col lg:flex-row gap-5 lg:gap-0">
-      <h2 className="text-2xl font-semibold">FoodRecipe</h2>
-      <form onSubmit={handleSubmit}>
+    <nav className="flex flex-col lg:flex-row justify-between items-center py-6 px-4 sm:px-8 bg-white/90 dark:bg-zinc-900/90 shadow-md dark:shadow-zinc-900 sticky top-0 z-30 gap-4 lg:gap-0 border-b border-gray-100 dark:border-zinc-800 backdrop-blur">
+      <h2 className="text-3xl font-bold text-red-500 tracking-tight flex items-center gap-2">
+        <span className="inline-block rotate-6">🍲</span> FoodRecipe
+      </h2>
+      <form onSubmit={handleSubmit} className="relative w-full max-w-md">
+        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">
+          {/* Heroicons search icon */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-5 h-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z"
+            />
+          </svg>
+        </span>
         <input
           type="text"
           name="search"
           value={searchPrams}
-          id=""
-          onChange={(e) => {
-            setsearchPrams(e.target.value);
-          }}
-          placeholder="Enter Items.."
-          className="bg-white/75 p-3 px-8 rounded-full outline-none lg:w-96 shadow-lg shadow-red-100 focus:shadow-red-200"
+          onChange={(e) => setsearchPrams(e.target.value)}
+          placeholder="Search recipes..."
+          className="bg-white/80 dark:bg-zinc-800 p-3 pl-12 pr-8 rounded-full outline-none w-full shadow-lg focus:shadow-red-200 border border-gray-200 dark:border-zinc-700 focus:border-red-400 dark:focus:border-red-400 transition"
         />
       </form>
-
-      <ul className="flex gap-5">
+      <ul className="flex gap-4 text-lg font-medium items-center">
         <li>
           <NavLink
             to={"/"}
-            className="text-black hover:text-gray:700 duration-300"
+            className={({ isActive }) =>
+              isActive
+                ? "text-red-500 border-b-2 border-red-500 pb-1"
+                : "text-gray-700 dark:text-gray-200 hover:text-red-400 transition"
+            }
           >
-            Food Recipe
+            Home
           </NavLink>
         </li>
         <li>
           <NavLink
             to={"/fav"}
-            className="text-black hover:text-gray:700 duration-300"
+            className={({ isActive }) =>
+              isActive
+                ? "text-red-500 border-b-2 border-red-500 pb-1"
+                : "text-gray-700 dark:text-gray-200 hover:text-red-400 transition"
+            }
           >
-            Fav
+            Favorites
           </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to={"/about"}
+            className={({ isActive }) =>
+              isActive
+                ? "text-red-500 border-b-2 border-red-500 pb-1"
+                : "text-gray-700 dark:text-gray-200 hover:text-red-400 transition"
+            }
+          >
+            About
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to={"/login"}
+            className={({ isActive }) =>
+              isActive
+                ? "text-red-500 border-b-2 border-red-500 pb-1"
+                : "text-gray-700 dark:text-gray-200 hover:text-red-400 transition"
+            }
+          >
+            Login
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to={"/signup"}
+            className={({ isActive }) =>
+              isActive
+                ? "text-red-500 border-b-2 border-red-500 pb-1"
+                : "text-gray-700 dark:text-gray-200 hover:text-red-400 transition"
+            }
+          >
+            Signup
+          </NavLink>
+        </li>
+        <li>
+          <button
+            onClick={onToggleDark}
+            className="ml-2 px-2 py-1 rounded-full bg-gray-200 dark:bg-zinc-800 text-gray-700 dark:text-gray-200 shadow hover:bg-gray-300 dark:hover:bg-zinc-700 transition text-base border border-gray-300 dark:border-zinc-700"
+            title="Toggle dark mode"
+          >
+            {dark ? "🌙" : "☀️"}
+          </button>
         </li>
       </ul>
     </nav>
   );
 }
+
+Navbar.propTypes = {
+  onToggleDark: PropTypes.func,
+  dark: PropTypes.bool,
+};
 
 export default Navbar;
