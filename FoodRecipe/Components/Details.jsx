@@ -55,32 +55,20 @@ function Details() {
         >
           {isFav ? (
             <>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
+              <img
+                src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/heart-fill.svg"
+                alt="Remove from Favorites"
                 className="w-5 h-5"
-              >
-                <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
-              </svg>
+              />
               Remove from Favorites
             </>
           ) : (
             <>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
+              <img
+                src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/heart.svg"
+                alt="Add to Favorites"
                 className="w-5 h-5"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 8.25c0-2.485-2.239-4.5-5-4.5-1.657 0-3.156.832-4 2.09A4.978 4.978 0 007 3.75c-2.761 0-5 2.015-5 4.5 0 2.485 2.239 4.5 5 4.5.795 0 1.551-.154 2.236-.434l1.264 1.264a.75.75 0 001.06 0l1.264-1.264A4.978 4.978 0 0017 12.75c2.761 0 5-2.015 5-4.5z"
-                />
-              </svg>
+              />
               Add to Favorites
             </>
           )}

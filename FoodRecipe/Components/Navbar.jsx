@@ -14,21 +14,11 @@ function Navbar({ onToggleDark, dark }) {
       </h2>
       <form onSubmit={handleSubmit} className="relative w-full max-w-md">
         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">
-          {/* Heroicons search icon */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
+          <img
+            src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/search.svg"
+            alt="Search"
             className="w-5 h-5"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z"
-            />
-          </svg>
+          />
         </span>
         <input
           type="text"
@@ -106,7 +96,15 @@ function Navbar({ onToggleDark, dark }) {
             className="ml-2 px-2 py-1 rounded-full bg-gray-200 dark:bg-zinc-800 text-gray-700 dark:text-gray-200 shadow hover:bg-gray-300 dark:hover:bg-zinc-700 transition text-base border border-gray-300 dark:border-zinc-700"
             title="Toggle dark mode"
           >
-            {dark ? "🌙" : "☀️"}
+            <img
+              src={
+                dark
+                  ? "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/moon-stars-fill.svg"
+                  : "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/brightness-high-fill.svg"
+              }
+              alt={dark ? "Dark mode" : "Light mode"}
+              className="w-5 h-5"
+            />
           </button>
         </li>
       </ul>

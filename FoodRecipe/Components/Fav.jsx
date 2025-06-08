@@ -30,20 +30,11 @@ function Fav() {
                   className="absolute top-3 right-3 bg-white/90 border border-red-200 text-red-500 rounded-full p-2 shadow hover:bg-red-100 transition opacity-80 group-hover:opacity-100"
                   title="Remove from Favorites"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={2}
-                    stroke="currentColor"
+                  <img
+                    src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/x-lg.svg"
+                    alt="Remove"
                     className="w-5 h-5"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                  />
                 </button>
               </div>
             ))}
